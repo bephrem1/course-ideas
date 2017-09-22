@@ -1,0 +1,20 @@
+{{#partial "content"}}
+    <!-- This is a block helper that checks if we have the username yet in the model passed in-->
+    {{#if username }}
+        <h1>Welcome {{username}}!</h1>
+
+        <p> View <a href="/ideas" >all course ideas</a>.</p>
+    {{else}}
+        <h1>Welcome Students!</h1>
+        <form action="/sign-in" method="post" >
+            <input type="text" placeholder="What's your name" name="username">
+            <button>Sign In</button>
+        </form>
+    {{/if}}
+
+{{/partial}} <!-- Inject what you want to be special about this page with the partials -->
+
+{{> base.hbs}} <!-- Inherit template from base.hbs -->
+
+<!-- The page for index is going to pop what is in the partial into the base.hbs
+template as indicated by last line -->

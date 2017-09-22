@@ -1,0 +1,34 @@
+{{#block "header"}}
+    <!doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/css/main.css"> <!-- note how public isn't included in the url, it's not part of it -->
+        <title>{{#block "title"}}Welcome to Course Ideas{{/block}}</title>
+    </head>
+
+    <div class="page">
+
+    {{#if flashMessage }}
+        <p id="flash-message">{{flashMessage}}</p>
+    {{/if}}
+{{/block}}
+
+{{#block "content"}}{{/block}}
+
+
+{{#block "footer"}}
+    </div>
+
+    </body>
+    </html>
+{{/block}}
+
+<!-- This base.hbs just serves as a tool to remain DRY! It is a template that other pages inherit
+ and the pages that inherit this just simply inject (with a partial) what they want to put in the
+ block sections on this base. The children .hbs files can override what is in the blocks here by default
+ if they want to-->

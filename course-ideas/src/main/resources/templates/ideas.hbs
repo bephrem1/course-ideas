@@ -1,0 +1,22 @@
+{{#partial "content"}}
+    <h1>Current Ideas</h1>
+
+    <ul>
+        {{#each ideas}}
+            <li>
+                <form action="/ideas/{{slug}}/vote" method="post">
+                    <a href="/ideas/{{slug}}">{{title}}</a>  ({{ voteCount }} votes) <button>Vote</button>
+                </form>
+            </li> <!-- POJO: Handlebars knows to run getTitle() when we call the title var here although it's private -->
+        {{/each}} <!-- For each idea in the list we passed into the model map with the key "ideas" do... -->
+    </ul>
+
+    <form action="/ideas" method="post">
+        <input type="text" placeholder="What's Your Idea?" name="title">
+        <button>Suggest</button>
+    </form>
+{{/partial}}
+
+
+
+{{> base.hbs}} <!-- Inherit template from base.hbs -->
